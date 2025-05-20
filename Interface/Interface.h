@@ -5,7 +5,7 @@
 
 class Interface {
 public:
-    void run();
+    void toDorun();
 };
 
 #endif

@@ -2,6 +2,6 @@
 
 int main() {
     Interface app;
-    app.run();
+    app.toDorun();
     return 0;
 }

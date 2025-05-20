@@ -1,7 +1,11 @@
 #include "Interface.h"
 #include <ncurses.h>
+#include <ctime>
+#include <sstream>
+#include <iomanip>
+#include <iostream>
 
-void Interface::run() {
+void Interface::toDorun() {
     ToDo list;
     initscr();              // Start ncurses mode
     noecho();               // Don't echo keypresses
@@ -14,7 +18,13 @@ void Interface::run() {
 
     while (running) {
         clear();
-        mvprintw(0, 0, "=== To-Do List ===");
+        // Get current time
+        time_t date;
+
+        time(&date);
+        mvprintw(0, 0, "%s", ctime(&date));
+
+        mvprintw(1, 0, "=== To-Do List ===");
         for (int i = 0; i < list.getSize(); ++i) {
             mvprintw(i + 2, 2, "%d. %s", i + 1, list.getItem(i).c_str());
         }
